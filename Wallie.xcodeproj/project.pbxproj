@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17F648037BF704B396100CC1 /* Pods_Wallie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811D4F00A2B67DA554F00F8 /* Pods_Wallie.framework */; };
 		85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0B72A547395009C4644 /* WallieApp.swift */; };
 		85B3D0BA2A547395009C4644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0B92A547395009C4644 /* ContentView.swift */; };
 		85B3D0BC2A547396009C4644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B3D0BB2A547396009C4644 /* Assets.xcassets */; };
 		85B3D0BF2A547396009C4644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B3D0BE2A547396009C4644 /* Preview Assets.xcassets */; };
 		85B3D0C12A547396009C4644 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0C02A547396009C4644 /* Persistence.swift */; };
 		85B3D0C42A547397009C4644 /* Wallie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0C22A547397009C4644 /* Wallie.xcdatamodeld */; };
+		85B3D0CC2A547437009C4644 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0CB2A547437009C4644 /* ContainerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2811D4F00A2B67DA554F00F8 /* Pods_Wallie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		448A3D420ED752D70559612A /* Pods-Wallie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallie.release.xcconfig"; path = "Target Support Files/Pods-Wallie/Pods-Wallie.release.xcconfig"; sourceTree = "<group>"; };
 		85B3D0B42A547395009C4644 /* Wallie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B3D0B72A547395009C4644 /* WallieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallieApp.swift; sourceTree = "<group>"; };
 		85B3D0B92A547395009C4644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -23,6 +27,8 @@
 		85B3D0BE2A547396009C4644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85B3D0C02A547396009C4644 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		85B3D0C32A547397009C4644 /* Wallie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallie.xcdatamodel; sourceTree = "<group>"; };
+		85B3D0CB2A547437009C4644 /* ContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
+		C8CB95DC5FD324365B6A1DB1 /* Pods-Wallie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallie.debug.xcconfig"; path = "Target Support Files/Pods-Wallie/Pods-Wallie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,17 +36,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F648037BF704B396100CC1 /* Pods_Wallie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A97E256F9ECA2F905648C1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8CB95DC5FD324365B6A1DB1 /* Pods-Wallie.debug.xcconfig */,
+				448A3D420ED752D70559612A /* Pods-Wallie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4CD2FD886EF5C6F05DE36F2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2811D4F00A2B67DA554F00F8 /* Pods_Wallie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		85B3D0AB2A547394009C4644 = {
 			isa = PBXGroup;
 			children = (
 				85B3D0B62A547395009C4644 /* Wallie */,
 				85B3D0B52A547395009C4644 /* Products */,
+				3A97E256F9ECA2F905648C1C /* Pods */,
+				4CD2FD886EF5C6F05DE36F2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				85B3D0B72A547395009C4644 /* WallieApp.swift */,
+				85B3D0CA2A5473E1009C4644 /* Extensions */,
 				85B3D0B92A547395009C4644 /* ContentView.swift */,
 				85B3D0BB2A547396009C4644 /* Assets.xcassets */,
 				85B3D0C02A547396009C4644 /* Persistence.swift */,
@@ -73,6 +100,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		85B3D0CA2A5473E1009C4644 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				85B3D0CB2A547437009C4644 /* ContainerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 85B3D0C72A547397009C4644 /* Build configuration list for PBXNativeTarget "Wallie" */;
 			buildPhases = (
+				627A775777E503C1568F36CC /* [CP] Check Pods Manifest.lock */,
 				85B3D0B02A547395009C4644 /* Sources */,
 				85B3D0B12A547395009C4644 /* Frameworks */,
 				85B3D0B22A547395009C4644 /* Resources */,
+				006B7167D60771926AAAA488 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -138,12 +175,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		006B7167D60771926AAAA488 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wallie/Pods-Wallie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wallie/Pods-Wallie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wallie/Pods-Wallie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		627A775777E503C1568F36CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wallie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		85B3D0B02A547395009C4644 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				85B3D0C12A547396009C4644 /* Persistence.swift in Sources */,
+				85B3D0CC2A547437009C4644 /* ContainerExtension.swift in Sources */,
 				85B3D0C42A547397009C4644 /* Wallie.xcdatamodeld in Sources */,
 				85B3D0BA2A547395009C4644 /* ContentView.swift in Sources */,
 				85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */,
@@ -269,6 +349,7 @@
 		};
 		85B3D0C82A547397009C4644 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8CB95DC5FD324365B6A1DB1 /* Pods-Wallie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -283,6 +364,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,6 +380,7 @@
 		};
 		85B3D0C92A547397009C4644 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 448A3D420ED752D70559612A /* Pods-Wallie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +395,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
