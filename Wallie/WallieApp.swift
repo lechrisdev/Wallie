@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Swinject
 
 @main
 struct WallieApp: App {
@@ -15,6 +16,12 @@ struct WallieApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            EmptyView()
+//                .onAppear {
+//                    _ = Assembler([AppAssembly()],
+//                                  container: Container.shared)
+//                    Container.shared.resolve(Router.self)!.configureNavigationController()
+//                }
         }
     }
 }
