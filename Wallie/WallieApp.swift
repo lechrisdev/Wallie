@@ -14,7 +14,7 @@ struct WallieApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            EmptyView()
 //                .onAppear {

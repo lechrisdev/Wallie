@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		17F648037BF704B396100CC1 /* Pods_Wallie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2811D4F00A2B67DA554F00F8 /* Pods_Wallie.framework */; };
 		85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0B72A547395009C4644 /* WallieApp.swift */; };
-		85B3D0BA2A547395009C4644 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0B92A547395009C4644 /* ContentView.swift */; };
+		85B3D0BA2A547395009C4644 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0B92A547395009C4644 /* MainView.swift */; };
 		85B3D0BC2A547396009C4644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B3D0BB2A547396009C4644 /* Assets.xcassets */; };
 		85B3D0BF2A547396009C4644 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85B3D0BE2A547396009C4644 /* Preview Assets.xcassets */; };
 		85B3D0C12A547396009C4644 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0C02A547396009C4644 /* Persistence.swift */; };
@@ -22,7 +22,7 @@
 		448A3D420ED752D70559612A /* Pods-Wallie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallie.release.xcconfig"; path = "Target Support Files/Pods-Wallie/Pods-Wallie.release.xcconfig"; sourceTree = "<group>"; };
 		85B3D0B42A547395009C4644 /* Wallie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85B3D0B72A547395009C4644 /* WallieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallieApp.swift; sourceTree = "<group>"; };
-		85B3D0B92A547395009C4644 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		85B3D0B92A547395009C4644 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		85B3D0BB2A547396009C4644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85B3D0BE2A547396009C4644 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85B3D0C02A547396009C4644 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -82,10 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				85B3D0B72A547395009C4644 /* WallieApp.swift */,
-				85B3D0CA2A5473E1009C4644 /* Extensions */,
-				85B3D0B92A547395009C4644 /* ContentView.swift */,
-				85B3D0BB2A547396009C4644 /* Assets.xcassets */,
 				85B3D0C02A547396009C4644 /* Persistence.swift */,
+				85B3D0CA2A5473E1009C4644 /* Extensions */,
+				85B3D0CD2A55A818009C4644 /* MainView */,
+				85B3D0BB2A547396009C4644 /* Assets.xcassets */,
 				85B3D0C22A547397009C4644 /* Wallie.xcdatamodeld */,
 				85B3D0BD2A547396009C4644 /* Preview Content */,
 			);
@@ -106,6 +106,22 @@
 				85B3D0CB2A547437009C4644 /* ContainerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		85B3D0CD2A55A818009C4644 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				85B3D0CE2A55A878009C4644 /* Elements */,
+				85B3D0B92A547395009C4644 /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		85B3D0CE2A55A878009C4644 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Elements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +241,7 @@
 				85B3D0C12A547396009C4644 /* Persistence.swift in Sources */,
 				85B3D0CC2A547437009C4644 /* ContainerExtension.swift in Sources */,
 				85B3D0C42A547397009C4644 /* Wallie.xcdatamodeld in Sources */,
-				85B3D0BA2A547395009C4644 /* ContentView.swift in Sources */,
+				85B3D0BA2A547395009C4644 /* MainView.swift in Sources */,
 				85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
