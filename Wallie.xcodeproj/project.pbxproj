@@ -16,6 +16,8 @@
 		85B3D0C42A547397009C4644 /* Wallie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0C22A547397009C4644 /* Wallie.xcdatamodeld */; };
 		85B3D0CC2A547437009C4644 /* ContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0CB2A547437009C4644 /* ContainerExtension.swift */; };
 		85B3D0D12A571B50009C4644 /* SearchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B3D0D02A571B50009C4644 /* SearchScreenView.swift */; };
+		85B7AFA92A79104D0057B807 /* ImagesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFA82A79104D0057B807 /* ImagesGridView.swift */; };
+		85B7AFAC2A7918D40057B807 /* ResultScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFAB2A7918D40057B807 /* ResultScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		85B3D0C32A547397009C4644 /* Wallie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallie.xcdatamodel; sourceTree = "<group>"; };
 		85B3D0CB2A547437009C4644 /* ContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerExtension.swift; sourceTree = "<group>"; };
 		85B3D0D02A571B50009C4644 /* SearchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenView.swift; sourceTree = "<group>"; };
+		85B7AFA82A79104D0057B807 /* ImagesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGridView.swift; sourceTree = "<group>"; };
+		85B7AFAB2A7918D40057B807 /* ResultScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenView.swift; sourceTree = "<group>"; };
 		C8CB95DC5FD324365B6A1DB1 /* Pods-Wallie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallie.debug.xcconfig"; path = "Target Support Files/Pods-Wallie/Pods-Wallie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,8 @@
 				85B3D0CA2A5473E1009C4644 /* Extensions */,
 				85B3D0CD2A55A818009C4644 /* MainView */,
 				85B3D0CF2A571AE6009C4644 /* SearchScreenView */,
+				85B7AFAA2A7918910057B807 /* ResultScreenView */,
+				85B7AFA72A7910130057B807 /* ImagesGridView */,
 				85B3D0BB2A547396009C4644 /* Assets.xcassets */,
 				85B3D0C22A547397009C4644 /* Wallie.xcdatamodeld */,
 				85B3D0BD2A547396009C4644 /* Preview Content */,
@@ -114,17 +120,9 @@
 		85B3D0CD2A55A818009C4644 /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				85B3D0CE2A55A878009C4644 /* Elements */,
 				85B3D0B92A547395009C4644 /* MainView.swift */,
 			);
 			path = MainView;
-			sourceTree = "<group>";
-		};
-		85B3D0CE2A55A878009C4644 /* Elements */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Elements;
 			sourceTree = "<group>";
 		};
 		85B3D0CF2A571AE6009C4644 /* SearchScreenView */ = {
@@ -133,6 +131,22 @@
 				85B3D0D02A571B50009C4644 /* SearchScreenView.swift */,
 			);
 			path = SearchScreenView;
+			sourceTree = "<group>";
+		};
+		85B7AFA72A7910130057B807 /* ImagesGridView */ = {
+			isa = PBXGroup;
+			children = (
+				85B7AFA82A79104D0057B807 /* ImagesGridView.swift */,
+			);
+			path = ImagesGridView;
+			sourceTree = "<group>";
+		};
+		85B7AFAA2A7918910057B807 /* ResultScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				85B7AFAB2A7918D40057B807 /* ResultScreenView.swift */,
+			);
+			path = ResultScreenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +266,11 @@
 				85B3D0C12A547396009C4644 /* Persistence.swift in Sources */,
 				85B3D0CC2A547437009C4644 /* ContainerExtension.swift in Sources */,
 				85B3D0C42A547397009C4644 /* Wallie.xcdatamodeld in Sources */,
+				85B7AFAC2A7918D40057B807 /* ResultScreenView.swift in Sources */,
 				85B3D0BA2A547395009C4644 /* MainView.swift in Sources */,
 				85B3D0D12A571B50009C4644 /* SearchScreenView.swift in Sources */,
 				85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */,
+				85B7AFA92A79104D0057B807 /* ImagesGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
