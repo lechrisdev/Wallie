@@ -25,6 +25,7 @@ struct SearchScreenView: View {
                 Image("BackArrowIcon")
             }
             .padding(.top, 14)
+            .padding(.horizontal, 24)
             .padding(.bottom, 26)
             
             HStack { // Textfield and "DiscardIcon"
@@ -44,18 +45,19 @@ struct SearchScreenView: View {
                         .padding(.trailing, 9)
                 }
             }
+            .padding(.horizontal, 24)
             .padding(.bottom, 7)
             
             Rectangle()
               .foregroundColor(.clear)
               .frame(height: 1)
               .background(Color.primary)
+              .padding(.horizontal, 24)
+              .padding(.bottom, 35)
             
-            ScrollView {
-                // Show a list with pictures of user's category from textField below.
-            }
+            ImagesGridView()
         }
-        .padding(.horizontal, 24)
+//        .padding(.horizontal, 24)
     }
 }
 

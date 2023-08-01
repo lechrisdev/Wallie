@@ -14,10 +14,6 @@ struct MainView: View {
         "Abstract", "Flowers", "Clouds", "Animals", "Drinks", "Food", "Sweet", "Mountains", "Holidays", "Nature", "People", "Sports", "Cars", "World"
     ]
     
-    private var columns: [GridItem] = [
-        GridItem(.adaptive(minimum: 140, maximum: 200), spacing: 18)
-    ]
-    
     var body: some View {
         
         NavigationView { // <<< Temporary solution to switch to SearchScreenVeiw >>>
@@ -66,28 +62,7 @@ struct MainView: View {
                 .padding(.leading, 24)
                 .padding(.bottom, 38)
                 
-                ScrollView {
-                    LazyVGrid(
-                        columns: columns,
-                        alignment: .center,
-                        spacing: 20,
-                        pinnedViews: []
-                    ) {
-                        Section() {
-                            ForEach(0...10, id: \.self) { index in
-                                Rectangle()
-                                    .aspectRatio(9/16, contentMode: .fit)
-                                    .overlay(Image("CloudImage")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                    )
-                                    .cornerRadius(15)
-                                //                              .foregroundColor([.red, .yellow, .green, .blue, .pink, .cyan].randomElement())
-                            }
-                        }
-                    }
-                }
-                .padding(.horizontal, 24)
+                ImagesGridView()
             }
         } // <<< Temporary solution to switch to SearchScreenVeiw >>>
     }
