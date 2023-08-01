@@ -12,7 +12,7 @@ struct SearchScreenView: View {
     @State private var text: String = ""
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             
             ZStack(alignment: .leading) { // "BackArrowIcon" button and "Search" word
                 HStack {
@@ -20,9 +20,11 @@ struct SearchScreenView: View {
                         Text("Search")
                             .font(.system(size: 26))
                             .fontWeight(.heavy)
+                            .foregroundColor(.primary)
                     Spacer()
                 }
                 Image("BackArrowIcon")
+                    .foregroundColor(.primary)
             }
             .padding(.top, 14)
             .padding(.horizontal, 24)
@@ -31,6 +33,7 @@ struct SearchScreenView: View {
             HStack { // Textfield and "DiscardIcon"
                 
                 TextField("Type the category you like", text: $text)
+                    .foregroundColor(.primary)
 //                                        TextFieldView(text: $viewModel.searchText)
                     .autocorrectionDisabled(true)
                 
@@ -42,6 +45,7 @@ struct SearchScreenView: View {
                     print("BUTTON: 'DiscardIcon' was tapp")
                 } label: {
                     Image("DiscardIcon")
+                        .foregroundColor(.primary)
                         .padding(.trailing, 9)
                 }
             }
@@ -57,7 +61,6 @@ struct SearchScreenView: View {
             
             ImagesGridView()
         }
-//        .padding(.horizontal, 24)
     }
 }
 

@@ -23,6 +23,7 @@ struct MainView: View {
                     Text("Wallpapers")
                         .font(.system(size: 26))
                         .fontWeight(.heavy)
+                        .foregroundColor(.primary)
                     Spacer()
                     
 //                    Button(action: {
@@ -31,6 +32,7 @@ struct MainView: View {
 //
 //                    }, label: {
 //                        Image("SearchIcon")
+//                            .foregroundColor(.primary)
 //                    })
                     
                     NavigationLink(destination: SearchScreenView()) { // <<< Temporary solution to switch to SearchScreenVeiw >>>
@@ -53,7 +55,7 @@ struct MainView: View {
                             }, label: {
                                 Text(category)
                                     .font(.system(size: 18))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.primary)
                             })
                             .padding(.trailing, 25)
                         }
