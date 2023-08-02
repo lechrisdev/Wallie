@@ -9,6 +9,12 @@ import SwiftUI
 
 struct ImagesGridView: View {
     
+    var router: Router
+    
+    init(router: Router) {
+        self.router = router
+    }
+    
     private var columns: [GridItem] = [
         GridItem(.adaptive(minimum: 140, maximum: 200), spacing: 18)
     ]
@@ -26,7 +32,9 @@ struct ImagesGridView: View {
                         
                         Button(action: {
                             // Here must be router to the 3rd screen - ResultScreenView.
+                            router.showResultScreenView()
                             print("TAP on IMAGE: switch to ResultScreenView")
+                            
                         }, label: {
                             Rectangle()
                                 .aspectRatio(9/16, contentMode: .fit)
@@ -47,6 +55,6 @@ struct ImagesGridView: View {
 
 struct ImagesGridView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagesGridView()
+        ImagesGridView(router: Router())
     }
 }

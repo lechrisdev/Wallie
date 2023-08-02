@@ -14,14 +14,14 @@ struct WallieApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//            EmptyView()
-//                .onAppear {
-//                    _ = Assembler([AppAssembly()],
-//                                  container: Container.shared)
-//                    Container.shared.resolve(Router.self)!.configureNavigationController()
-//                }
+//            MainView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            EmptyView()
+                .onAppear {
+                    _ = Assembler([AppAssembly()],
+                                  container: Container.shared)
+                    Container.shared.resolve(Router.self)!.configureNavigationController()
+                }
         }
     }
 }

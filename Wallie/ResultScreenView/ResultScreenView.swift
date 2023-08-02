@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct ResultScreenView: View {
+    
+    var router: Router
+    
+    init(router: Router) {
+        self.router = router
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack { // "BackArrowIcon" button and "DownloadSaveIcon" button
-                Image("BackArrowIcon")
-                    .foregroundColor(.primary)
+                Button(action: {
+//                    router.back()
+                    router.dismiss(animated: true)
+                    print("BUTTON: Back to previous Screen")
+                }, label: {
+                    Image("BackArrowIcon")
+                        .foregroundColor(.primary)
+                })
                 Spacer()
                 Image("DownloadSaveIcon")
                     .foregroundColor(.primary)
@@ -44,7 +57,7 @@ struct ResultScreenView: View {
 
 struct ResultScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultScreenView()
+        ResultScreenView(router: Router())
     }
 }
 
