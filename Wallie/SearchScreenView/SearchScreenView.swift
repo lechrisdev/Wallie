@@ -9,7 +9,17 @@ import SwiftUI
 
 struct SearchScreenView: View {
     
+    @ObservedObject var viewModel: SearchScreenViewModel
+    
+    var router: Router
+    
     @State private var text: String = ""
+    
+    init(router: Router, viewModel: SearchScreenViewModel) {
+        self.viewModel = viewModel
+        self.router = router
+    }
+    
     
     var body: some View {
         VStack(spacing: 0) {
@@ -23,8 +33,13 @@ struct SearchScreenView: View {
                             .foregroundColor(.primary)
                     Spacer()
                 }
-                Image("BackArrowIcon")
-                    .foregroundColor(.primary)
+                Button(action: {
+                    router.back()
+                    print("BUTTON: Back to MainView")
+                }, label: {
+                    Image("BackArrowIcon")
+                        .foregroundColor(.primary)
+                })
             }
             .padding(.top, 14)
             .padding(.horizontal, 24)
@@ -59,13 +74,14 @@ struct SearchScreenView: View {
               .padding(.horizontal, 24)
               .padding(.bottom, 35)
             
-            ImagesGridView()
+            ImagesGridView(router: router)
         }
     }
 }
 
 struct SearchScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchScreenView()
+        SearchScreenView(router: Router(),
+                         viewModel: SearchScreenViewModel())
     }
 }
