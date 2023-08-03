@@ -22,6 +22,10 @@
 		85B7AFB12A79BDDD0057B807 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFB02A79BDDD0057B807 /* AppAssembly.swift */; };
 		85B7AFB32A79C13D0057B807 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFB22A79C13D0057B807 /* MainViewModel.swift */; };
 		85B7AFB52A79C7050057B807 /* SearchScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFB42A79C7050057B807 /* SearchScreenViewModel.swift */; };
+		85B7AFB82A7A9DF10057B807 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFB72A7A9DF10057B807 /* API.swift */; };
+		85B7AFBB2A7AB7930057B807 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFBA2A7AB7930057B807 /* ImageData.swift */; };
+		85B7AFBE2A7BB3610057B807 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFBD2A7BB3610057B807 /* ImageModel.swift */; };
+		85B7AFC02A7C11E10057B807 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFBF2A7C11E10057B807 /* DataExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		85B7AFB02A79BDDD0057B807 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		85B7AFB22A79C13D0057B807 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		85B7AFB42A79C7050057B807 /* SearchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModel.swift; sourceTree = "<group>"; };
+		85B7AFB72A7A9DF10057B807 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		85B7AFBA2A7AB7930057B807 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		85B7AFBD2A7BB3610057B807 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		85B7AFBF2A7C11E10057B807 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		C8CB95DC5FD324365B6A1DB1 /* Pods-Wallie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallie.debug.xcconfig"; path = "Target Support Files/Pods-Wallie/Pods-Wallie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +107,8 @@
 				85B7AFAD2A79BC9A0057B807 /* Router.swift */,
 				85B7AFAF2A79BD2D0057B807 /* DI */,
 				85B3D0C02A547396009C4644 /* Persistence.swift */,
+				85B7AFB62A7A9DC80057B807 /* Network */,
+				85B7AFB92A7AB6940057B807 /* Models */,
 				85B3D0CA2A5473E1009C4644 /* Extensions */,
 				85B3D0CD2A55A818009C4644 /* MainView */,
 				85B3D0CF2A571AE6009C4644 /* SearchScreenView */,
@@ -123,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				85B3D0CB2A547437009C4644 /* ContainerExtension.swift */,
+				85B7AFBF2A7C11E10057B807 /* DataExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -148,6 +159,7 @@
 		85B7AFA72A7910130057B807 /* ImagesGridView */ = {
 			isa = PBXGroup;
 			children = (
+				85B7AFBC2A7BB3220057B807 /* Model */,
 				85B7AFA82A79104D0057B807 /* ImagesGridView.swift */,
 			);
 			path = ImagesGridView;
@@ -167,6 +179,30 @@
 				85B7AFB02A79BDDD0057B807 /* AppAssembly.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		85B7AFB62A7A9DC80057B807 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				85B7AFB72A7A9DF10057B807 /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		85B7AFB92A7AB6940057B807 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85B7AFBA2A7AB7930057B807 /* ImageData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85B7AFBC2A7BB3220057B807 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85B7AFBD2A7BB3610057B807 /* ImageModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,17 +320,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				85B7AFB52A79C7050057B807 /* SearchScreenViewModel.swift in Sources */,
+				85B7AFBE2A7BB3610057B807 /* ImageModel.swift in Sources */,
 				85B3D0C12A547396009C4644 /* Persistence.swift in Sources */,
 				85B3D0CC2A547437009C4644 /* ContainerExtension.swift in Sources */,
 				85B3D0C42A547397009C4644 /* Wallie.xcdatamodeld in Sources */,
+				85B7AFC02A7C11E10057B807 /* DataExtension.swift in Sources */,
 				85B7AFAC2A7918D40057B807 /* ResultScreenView.swift in Sources */,
 				85B7AFAE2A79BC9B0057B807 /* Router.swift in Sources */,
 				85B3D0BA2A547395009C4644 /* MainView.swift in Sources */,
 				85B3D0D12A571B50009C4644 /* SearchScreenView.swift in Sources */,
+				85B7AFB82A7A9DF10057B807 /* API.swift in Sources */,
 				85B7AFB12A79BDDD0057B807 /* AppAssembly.swift in Sources */,
 				85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */,
 				85B7AFA92A79104D0057B807 /* ImagesGridView.swift in Sources */,
 				85B7AFB32A79C13D0057B807 /* MainViewModel.swift in Sources */,
+				85B7AFBB2A7AB7930057B807 /* ImageData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

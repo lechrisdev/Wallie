@@ -11,6 +11,8 @@ struct ImagesGridView: View {
     
     var router: Router
     
+//    let images: [ImageModel]
+    
     init(router: Router) {
         self.router = router
     }
