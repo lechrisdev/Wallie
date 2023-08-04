@@ -26,6 +26,7 @@
 		85B7AFBB2A7AB7930057B807 /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFBA2A7AB7930057B807 /* ImageData.swift */; };
 		85B7AFBE2A7BB3610057B807 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFBD2A7BB3610057B807 /* ImageModel.swift */; };
 		85B7AFC02A7C11E10057B807 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFBF2A7C11E10057B807 /* DataExtension.swift */; };
+		85B7AFC22A7D66B20057B807 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7AFC12A7D66B20057B807 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		85B7AFBA2A7AB7930057B807 /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		85B7AFBD2A7BB3610057B807 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		85B7AFBF2A7C11E10057B807 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		85B7AFC12A7D66B20057B807 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		C8CB95DC5FD324365B6A1DB1 /* Pods-Wallie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallie.debug.xcconfig"; path = "Target Support Files/Pods-Wallie/Pods-Wallie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				85B7AFB72A7A9DF10057B807 /* API.swift */,
+				85B7AFC12A7D66B20057B807 /* Repository.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				85B3D0D12A571B50009C4644 /* SearchScreenView.swift in Sources */,
 				85B7AFB82A7A9DF10057B807 /* API.swift in Sources */,
 				85B7AFB12A79BDDD0057B807 /* AppAssembly.swift in Sources */,
+				85B7AFC22A7D66B20057B807 /* Repository.swift in Sources */,
 				85B3D0B82A547395009C4644 /* WallieApp.swift in Sources */,
 				85B7AFA92A79104D0057B807 /* ImagesGridView.swift in Sources */,
 				85B7AFB32A79C13D0057B807 /* MainViewModel.swift in Sources */,
