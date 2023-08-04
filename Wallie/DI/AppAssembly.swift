@@ -19,6 +19,11 @@ class AppAssembly: Assembly {
         })
         .inObjectScope(.container)
         
+        container.register(Repository.self) { _ in
+            Repository()
+        }
+        .inObjectScope(.container)
+        
         // MARK: - ViewModels
         
 //        container.register(MainViewModel.self, factory: { container in

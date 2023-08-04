@@ -11,10 +11,11 @@ struct ImagesGridView: View {
     
     var router: Router
     
-//    let images: [ImageModel]
+    let images: [ImageModel]
     
-    init(router: Router) {
+    init(router: Router, images: [ImageModel]) {
         self.router = router
+        self.images = images
     }
     
     private var columns: [GridItem] = [
@@ -57,6 +58,6 @@ struct ImagesGridView: View {
 
 struct ImagesGridView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagesGridView(router: Router())
+        ImagesGridView(router: Router()) // + RepositoryMock
     }
 }
