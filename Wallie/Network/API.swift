@@ -57,8 +57,7 @@ enum Requests: EndPoint {
 //                "page": 1,
 //                "per_page": 10,
 //                "lang": "en" // ("ru", "uk")
-//                "query": category,
-                "query": "office", // temporary solution
+                "query": category,
                 "orientation": "portrait",
                 "client_id": "dBZzBT11hAE4LJyiR7djNbU8FC_W6Bs-4u9OhQmA5dc" // My personal ID: delete, before upload?
             ]

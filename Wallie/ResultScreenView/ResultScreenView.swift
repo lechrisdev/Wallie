@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ResultScreenView: View {
     
     var router: Router
     
-    init(router: Router) {
+    var url: String
+    
+    init(router: Router, url: String) {
         self.router = router
+        self.url = url
     }
     
     var body: some View {
@@ -37,7 +41,7 @@ struct ResultScreenView: View {
             Rectangle()
                 .aspectRatio(9/16, contentMode: .fit)
                 .foregroundColor(.clear)
-                .overlay(Image("CloudImage")
+                .overlay(KFImage(URL(string: url))
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                 )
@@ -46,9 +50,9 @@ struct ResultScreenView: View {
                 .padding(.bottom, 24)
             
             HStack {
-                ExtractedView(name: "Home Screen")
+                ButtonView(name: "Home Screen")
                 Spacer()
-                ExtractedView(name: "Lock Screen")
+                ButtonView(name: "Lock Screen")
             }
             .padding(.horizontal, 24)
         }
@@ -57,11 +61,12 @@ struct ResultScreenView: View {
 
 struct ResultScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultScreenView(router: Router())
+        ResultScreenView(router: Router(),
+                         url: "https://images.unsplash.com/photo-1684144004516-305d67b7352d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80")
     }
 }
 
-struct ExtractedView: View {
+struct ButtonView: View {
     
     var name: String
     

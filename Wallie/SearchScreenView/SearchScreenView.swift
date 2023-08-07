@@ -13,8 +13,6 @@ struct SearchScreenView: View {
     
     var router: Router
     
-    @State private var text: String = ""
-    
     init(router: Router, viewModel: SearchScreenViewModel) {
         self.viewModel = viewModel
         self.router = router
@@ -47,16 +45,15 @@ struct SearchScreenView: View {
             
             HStack { // Textfield and "DiscardIcon"
                 
-                TextField("Type the category you like", text: $text)
+                TextField("Type the category you like", text: $viewModel.text)
                     .foregroundColor(.primary)
-//                                        TextFieldView(text: $viewModel.searchText)
                     .autocorrectionDisabled(true)
                 
                 
                 Spacer()
                 
                 Button {
-                    self.text = "" // Действие кнопки для сброса текста
+                    viewModel.text = "" // Действие кнопки для сброса текста
                     print("BUTTON: 'DiscardIcon' was tapp")
                 } label: {
                     Image("DiscardIcon")
@@ -74,14 +71,28 @@ struct SearchScreenView: View {
               .padding(.horizontal, 24)
               .padding(.bottom, 35)
             
-            ImagesGridView(router: router)
+            Spacer()
+            
+            ScrollView {
+                ImagesGridView(router: router,
+                               images: viewModel.images)
+            }
         }
+        .onChange(of: viewModel.text, perform: { text in
+            if text.count >= 3 {
+                print(text)
+                viewModel.startTimer(withTimeInterval: 1) {
+                    print("Timer 1 sec Left")
+                    viewModel.searchImages()
+                }
+            }
+        })
     }
 }
 
 struct SearchScreenView_Previews: PreviewProvider {
     static var previews: some View {
         SearchScreenView(router: Router(),
-                         viewModel: SearchScreenViewModel())
+                         viewModel: SearchScreenViewModel(repo: RepositoryMock()))
     }
 }
