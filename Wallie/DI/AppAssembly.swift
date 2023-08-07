@@ -35,11 +35,11 @@ class AppAssembly: Assembly {
         // temporarily, register an empty view model, later the top version will be
         
         container.register(MainViewModel.self, factory: { container in
-            MainViewModel()
+            MainViewModel(repo: container.resolve(Repository.self)!)
         })
         
         container.register(SearchScreenViewModel.self, factory: { container in
-            SearchScreenViewModel()
+            SearchScreenViewModel(repo: container.resolve(Repository.self)!)
         })
     }
 }

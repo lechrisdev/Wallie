@@ -38,8 +38,8 @@ class Router {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func showResultScreenView() {
-        let vc = UIHostingController(rootView: ResultScreenView(router: self))
+    func showResultScreenView(url: String) {
+        let vc = UIHostingController(rootView: ResultScreenView(router: self, url: url))
         
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .fullScreen

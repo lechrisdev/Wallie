@@ -17,11 +17,8 @@ struct MainView: View {
     init(router: Router, viewModel: MainViewModel) {
         self.viewModel = viewModel
         self.router = router
+        viewModel.searchImages()
     }
-    
-    var categories: [String] = [
-        "Abstract", "Flowers", "Clouds", "Animals", "Drinks", "Food", "Sweet", "Mountains", "Holidays", "Nature", "People", "Sports", "Cars", "World"
-    ]
     
     var body: some View {
         
@@ -48,15 +45,24 @@ struct MainView: View {
             // Elements - Categories - HorizontalScroll
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(Array(categories), id: \.self) { category in
+                    ForEach(Array(viewModel.categories), id: \.self) { category in
                         Button(action: {
                             // Update ScrollView with pictures below.
                             print("BUTTON: Load pictures for category on tap")
                             print(category)
+                            viewModel.selectedCategory = category
+                            viewModel.searchImages()
                         }, label: {
-                            Text(category)
-                                .font(.system(size: 18))
-                                .foregroundColor(.primary)
+                            if category == viewModel.selectedCategory {
+                                Text(category)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.primary)
+                                    .fontWeight(.bold)
+                            } else {
+                                Text(category)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.primary)
+                            }
                         })
                         .padding(.trailing, 25)
                     }
@@ -65,7 +71,10 @@ struct MainView: View {
             .padding(.leading, 24)
             .padding(.bottom, 38)
             
-            ImagesGridView(router: router)
+            ScrollView {
+                ImagesGridView(router: router,
+                               images: viewModel.images)
+            }
         }
         .navigationBarHidden(true)
     }
@@ -73,7 +82,7 @@ struct MainView: View {
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
             MainView(router: Router(),
-                     viewModel: MainViewModel())
+                     viewModel: MainViewModel(repo: RepositoryMock()))
         }
     }
 }
