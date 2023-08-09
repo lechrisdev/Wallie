@@ -14,6 +14,7 @@ class MainViewModel: ObservableObject {
     
     init(repo: RepositoryProtocol) {
         self.repo = repo
+        searchImages()
     }
     
     var categories: [String] = ["Abstract", "Flowers", "Clouds",
@@ -23,12 +24,28 @@ class MainViewModel: ObservableObject {
     
     var selectedCategory: String = "Abstract"
     
+    var page = 1
+    
     @Published var images: [ImageModel] = []
     
-    @MainActor func searchImages() {
+    func searchImages() {
         Task {
-            self.images = await repo.getImages(category: selectedCategory)
+            let images = await repo.getImages(category: selectedCategory, page: page)
+            DispatchQueue.main.async {
+                self.images = images
+            }
+            page += 1
         }
     }
+    
+    @MainActor
+    func loadImagesIfNeeded(index: Int) async {
+        if index == images.count-5 {
+            let newImages = await repo.getImages(category: selectedCategory, page: page)
+            images += newImages
+            page += 1
+        }
+    }
+    
 }
 

@@ -9,16 +9,16 @@ import Foundation
 import Swinject
 
 protocol RepositoryProtocol {
-    func getImages(category: String) async -> [ImageModel]
+    func getImages(category: String, page: Int) async -> [ImageModel]
 }
 
 class Repository: RepositoryProtocol {
     
-    func getImages(category: String) async -> [ImageModel] {
+    func getImages(category: String, page: Int) async -> [ImageModel] {
         
         var images: [ImageModel] = []
                                             // ЗАГРУЗКА ГОРОДА ДЛЯ SEARCH SCREEN VIEW
-        let data = await API.sendRequestData(request: Requests.getImages(category: category))
+        let data = await API.sendRequestData(request: Requests.getImages(category: category, page: page))
         if let result = data?.convertTo(ImageData.self) {
             images = result.domain
         }
@@ -28,7 +28,7 @@ class Repository: RepositoryProtocol {
 
 class RepositoryMock: RepositoryProtocol {
     
-    func getImages(category: String) async -> [ImageModel] {
+    func getImages(category: String, page: Int) async -> [ImageModel] {
         [
             ImageModel(imageId: "0",
                        fullImageUrl: "https://images.unsplash.com/photo-1685815450272-806b5c531403?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80",

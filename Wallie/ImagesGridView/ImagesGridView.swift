@@ -14,9 +14,12 @@ struct ImagesGridView: View {
     
     let images: [ImageModel]
     
-    init(router: Router, images: [ImageModel]) {
+    var index: (Int) -> Void
+    
+    init(router: Router, images: [ImageModel], index: @escaping (Int) -> Void) {
         self.router = router
         self.images = images
+        self.index = index
     }
     
     private var columns: [GridItem] = [
@@ -24,33 +27,46 @@ struct ImagesGridView: View {
     ]
     
     var body: some View {
-        LazyVGrid(
-            columns: columns,
-            alignment: .center,
-            spacing: 20,
-            pinnedViews: []
-        ) {
-            Section() {
-                ForEach(images, id: \.self) { image in
-                    
-                    Button(action: {
-                        // Here must be router to the 3rd screen - ResultScreenView.
-                        router.showResultScreenView(url: image.fullImageUrl)
-                        print("TAP on IMAGE: switch to ResultScreenView")
-                    }, label: {
-                        Rectangle()
-                            .aspectRatio(9/16, contentMode: .fit)
-                            .overlay(KFImage(URL(string: image.smallImageUrl))
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                            )
-                            .cornerRadius(15)
-                        //  .foregroundColor([.red, .yellow, .green, .blue, .pink, .cyan].randomElement())
-                    })
+        VStack {
+            LazyVGrid(
+                columns: columns,
+                alignment: .center,
+                spacing: 20,
+                pinnedViews: []
+            ) {
+                Section() {
+                    ForEach(Array(images.enumerated()), id: \.offset) { index, image in
+                        
+                        Button(action: {
+                            router.showResultScreenView(url: image.fullImageUrl)
+                            print("TAP on IMAGE: switch to ResultScreenView")
+                        }, label: {
+                            Rectangle()
+                                .aspectRatio(9/16, contentMode: .fit)
+                                .foregroundColor(.gray)
+                                .overlay(
+                                    ZStack {
+                                        ProgressView()
+                                            .progressViewStyle(.circular)
+                                        KFImage(URL(string: image.smallImageUrl))
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    }
+                                )
+                                .cornerRadius(15)
+                            //                            .id(index)
+                                .onAppear {
+                                    self.index(index)
+                                }
+                            //  .foregroundColor([.red, .yellow, .green, .blue, .pink, .cyan].randomElement())
+                        })
+                    }
                 }
             }
+            .padding(.horizontal, 24)
+            ProgressView()
+                .progressViewStyle(.circular)
         }
-        .padding(.horizontal, 24)
     }
 }
 
@@ -68,6 +84,6 @@ struct ImagesGridView_Previews: PreviewProvider {
                                  smallImageUrl: "https://images.unsplash.com/photo-1684144004516-305d67b7352d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80")]
         
         ImagesGridView(router: Router(),
-                       images: images) // + RepositoryMock
+                       images: images, index: { _ in }) // + RepositoryMock
     }
 }

@@ -21,9 +21,20 @@ class SearchScreenViewModel: ObservableObject {
     
     @Published var images: [ImageModel] = []
     
+    var page = 1
+    
     @MainActor func searchImages() {
         Task {
-            self.images = await repo.getImages(category: text)
+            self.images = await repo.getImages(category: text, page: page)
+        }
+    }
+    
+    @MainActor
+    func loadImagesIfNeeded(index: Int) async {
+        if index == images.count-5 {
+            let newImages = await repo.getImages(category: text, page: page)
+            images += newImages
+            page += 1
         }
     }
     
@@ -36,9 +47,6 @@ class SearchScreenViewModel: ObservableObject {
     }
     
     private func cancelAllTimers() {
-//        for timer in timers {
             timers?.invalidate()
-//        }
-//        timers.removeAll()
     }
 }

@@ -17,7 +17,6 @@ struct MainView: View {
     init(router: Router, viewModel: MainViewModel) {
         self.viewModel = viewModel
         self.router = router
-        viewModel.searchImages()
     }
     
     var body: some View {
@@ -42,38 +41,50 @@ struct MainView: View {
             .padding(.horizontal, 24)
             .padding(.bottom, 27)
             
-            // Elements - Categories - HorizontalScroll
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(Array(viewModel.categories), id: \.self) { category in
-                        Button(action: {
-                            // Update ScrollView with pictures below.
-                            print("BUTTON: Load pictures for category on tap")
-                            print(category)
-                            viewModel.selectedCategory = category
-                            viewModel.searchImages()
-                        }, label: {
-                            if category == viewModel.selectedCategory {
-                                Text(category)
-                                    .font(.system(size: 18))
-                                    .foregroundColor(.primary)
-                                    .fontWeight(.bold)
-                            } else {
-                                Text(category)
-                                    .font(.system(size: 18))
-                                    .foregroundColor(.primary)
-                            }
-                        })
-                        .padding(.trailing, 25)
+            // Categories - HorizontalScroll
+            ScrollViewReader { reader in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(Array(viewModel.categories), id: \.self) { category in
+                            Button(action: {
+                                viewModel.selectedCategory = category
+                                viewModel.page = 1
+                                viewModel.images = []
+                                viewModel.searchImages()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    withAnimation {
+                                        reader.scrollTo(category, anchor: .leading)
+//                                        reader.scrollTo(category)
+                                    }
+                                }
+                            }, label: {
+                                if category == viewModel.selectedCategory {
+                                    Text(category)
+                                        .font(.system(size: 18))
+                                        .foregroundColor(.primary)
+                                        .fontWeight(.bold)
+                                } else {
+                                    Text(category)
+                                        .font(.system(size: 18))
+                                        .foregroundColor(.primary)
+                                }
+                            })
+                            .padding(.trailing, 25)
+                        }
                     }
                 }
+                .padding(.leading, 24)
+                .padding(.bottom, 38)
             }
-            .padding(.leading, 24)
-            .padding(.bottom, 38)
             
             ScrollView {
                 ImagesGridView(router: router,
-                               images: viewModel.images)
+                               images: viewModel.images,
+                               index: { index in
+                    Task {
+                        await viewModel.loadImagesIfNeeded(index: index)
+                    }
+                })
             }
         }
         .navigationBarHidden(true)
