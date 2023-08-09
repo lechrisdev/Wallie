@@ -74,8 +74,15 @@ struct SearchScreenView: View {
             Spacer()
             
             ScrollView {
-                ImagesGridView(router: router,
-                               images: viewModel.images)
+                if viewModel.images.count != 0 {
+                    ImagesGridView(router: router,
+                                   images: viewModel.images,
+                                   index: { index in
+                        Task {
+                            await viewModel.loadImagesIfNeeded(index: index)
+                        }
+                    })
+                }
             }
         }
         .onChange(of: viewModel.text, perform: { text in
@@ -83,6 +90,8 @@ struct SearchScreenView: View {
                 print(text)
                 viewModel.startTimer(withTimeInterval: 1) {
                     print("Timer 1 sec Left")
+                    viewModel.page = 1
+                    viewModel.images = []
                     viewModel.searchImages()
                 }
             }

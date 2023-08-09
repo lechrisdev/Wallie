@@ -34,7 +34,7 @@ protocol EndPoint {
 }
     
 enum Requests: EndPoint {
-    case getImages(category: String)
+    case getImages(category: String, page: Int)
     
     var path: String {
         switch self {
@@ -52,10 +52,10 @@ enum Requests: EndPoint {
     
     var parameters: Alamofire.Parameters? {
         switch self {
-        case let .getImages(category):
+        case let .getImages(category, page):
             let parameters: [String: Encodable] = [
-//                "page": 1,
-//                "per_page": 10,
+                "page": page,
+                "per_page": 10,
 //                "lang": "en" // ("ru", "uk")
                 "query": category,
                 "orientation": "portrait",

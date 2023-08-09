@@ -41,9 +41,14 @@ struct ResultScreenView: View {
             Rectangle()
                 .aspectRatio(9/16, contentMode: .fit)
                 .foregroundColor(.clear)
-                .overlay(KFImage(URL(string: url))
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+                .overlay(
+                    ZStack {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                        KFImage(URL(string: url))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
                 )
                 .cornerRadius(15)
                 .padding(.horizontal, 24)
