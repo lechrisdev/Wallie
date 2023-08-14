@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - перевод любой Data в любую dataModel (generic)
 extension Data {
     
     func convertTo<SomeData: Decodable>(_ dataModel: SomeData.Type) -> SomeData? {

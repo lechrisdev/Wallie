@@ -7,8 +7,6 @@
 
 import Foundation
 
-//   let imageData = try? JSONDecoder().decode(ImageData.self, from: jsonData)
-
 // MARK: - ImageData
 struct ImageData: Codable {
     let total: Int
@@ -76,7 +74,7 @@ struct Urls: Codable {
     }
 }
 
-// MARK: - перевод ImageData в ImageModel
+// MARK: - convert: ImageData -> ImageModel
 extension ImageData {
     var domain: [ImageModel] {
         

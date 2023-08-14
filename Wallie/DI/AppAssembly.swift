@@ -26,14 +26,6 @@ class AppAssembly: Assembly {
         
         // MARK: - ViewModels
         
-//        container.register(MainViewModel.self, factory: { container in
-//            MainViewModel(repo: container.resolve(Repository.self)!,
-//                          persistence: container.resolve(Persistence.self)!
-//            )
-//        })
-        
-        // temporarily, register an empty view model, later the top version will be
-        
         container.register(MainViewModel.self, factory: { container in
             MainViewModel(repo: container.resolve(Repository.self)!)
         })

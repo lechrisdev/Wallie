@@ -11,8 +11,7 @@ import Alamofire
 class API {
     
     // MARK: NEW
-    static func sendRequestData(request: EndPoint) async -> Data? {
-        do {
+    static func sendRequestData(request: EndPoint) async throws -> Data? {
             return try await AF.request(request.path,
                                         method: request.httpMethod,
                                         parameters: request.parameters,
@@ -20,10 +19,6 @@ class API {
             .validate(statusCode: 200..<300)
             .serializingData()
             .value
-        } catch {
-            print("Error sending request: \(error)")
-            return nil
-        }
     }
 }
 
@@ -57,9 +52,9 @@ enum Requests: EndPoint {
                 "page": page,
                 "per_page": 10,
 //                "lang": "en" // ("ru", "uk")
-                "query": category,
+                "query": category + " iphone wallpaper",
                 "orientation": "portrait",
-                "client_id": "dBZzBT11hAE4LJyiR7djNbU8FC_W6Bs-4u9OhQmA5dc" // My personal ID: delete, before upload?
+                "client_id": "pU8BLIUc1CAVNEC1ni4KZPML0wlVO6zefkwvLTRrmFs" // "dBZzBT11hAE4LJyiR7djNbU8FC_W6Bs-4u9OhQmA5dc" // My personal ID: delete, before upload?
             ]
             return parameters
         }
