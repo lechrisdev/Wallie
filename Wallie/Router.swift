@@ -20,8 +20,7 @@ class Router {
         if navigationController == nil {
             let vm = Container.shared.resolve(MainViewModel.self)!
             let vc = UIHostingController(rootView: MainView(router: self,
-                                                            viewModel: vm)) //,
-//                                                            locationManager: Container.shared.resolve(LocationManager.self)!))
+                                                            viewModel: vm))
             navigationController = UINavigationController(rootViewController: vc)
             navigationController?.title = ""
             UIApplication.shared.windows.first?.rootViewController = navigationController
@@ -32,19 +31,15 @@ class Router {
         let vm = Container.shared.resolve(SearchScreenViewModel.self)!
         let vc = UIHostingController(rootView: SearchScreenView(router: self,
                                                                 viewModel: vm))
-//        vc.modalTransitionStyle = .crossDissolve
-//        vc.modalPresentationStyle = .fullScreen
-//        self.navigationController?.present(vc, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showResultScreenView(url: String) {
-        let vc = UIHostingController(rootView: ResultScreenView(router: self, url: url))
-        
+        let vc = UIHostingController(rootView: ResultScreenView(router: self,
+                                                                url: url))
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.present(vc, animated: true)
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func back(animated: Bool = true) {

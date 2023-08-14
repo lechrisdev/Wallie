@@ -11,9 +11,7 @@ import Kingfisher
 struct ImagesGridView: View {
     
     var router: Router
-    
     let images: [ImageModel]
-    
     var index: (Int) -> Void
     
     init(router: Router, images: [ImageModel], index: @escaping (Int) -> Void) {
@@ -36,10 +34,8 @@ struct ImagesGridView: View {
             ) {
                 Section() {
                     ForEach(Array(images.enumerated()), id: \.offset) { index, image in
-                        
                         Button(action: {
                             router.showResultScreenView(url: image.fullImageUrl)
-                            print("TAP on IMAGE: switch to ResultScreenView")
                         }, label: {
                             Rectangle()
                                 .aspectRatio(9/16, contentMode: .fit)
@@ -54,11 +50,9 @@ struct ImagesGridView: View {
                                     }
                                 )
                                 .cornerRadius(15)
-                            //                            .id(index)
                                 .onAppear {
                                     self.index(index)
                                 }
-                            //  .foregroundColor([.red, .yellow, .green, .blue, .pink, .cyan].randomElement())
                         })
                     }
                 }
@@ -84,6 +78,6 @@ struct ImagesGridView_Previews: PreviewProvider {
                                  smallImageUrl: "https://images.unsplash.com/photo-1684144004516-305d67b7352d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=927&q=80")]
         
         ImagesGridView(router: Router(),
-                       images: images, index: { _ in }) // + RepositoryMock
+                       images: images, index: { _ in })
     }
 }
